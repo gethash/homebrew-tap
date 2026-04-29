@@ -6,8 +6,6 @@ class Bamboozle < Formula
   license "Apache-2.0"
   head "https://github.com/gethash/bamboozle.git", branch: "main"
 
-  bottle :unneeded
-
   depends_on "go" => :build
 
   # macOS: Cocoa, Metal, and OpenGL come from Xcode CLT — no extra deps.
