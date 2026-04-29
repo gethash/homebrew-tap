@@ -1,8 +1,8 @@
 class Bamboozle < Formula
   desc "Fullscreen PDF presenter with auto-advance, spiritual successor to Impressive"
   homepage "https://github.com/gethash/bamboozle"
-  url "https://github.com/gethash/bamboozle/archive/refs/tags/v0.2.0.tar.gz"
-  sha256 "PLACEHOLDER_compute_after_tagging"
+  url "https://github.com/gethash/bamboozle/archive/refs/tags/main.tar.gz"
+  sha256 "ce05167684b33bed2394b1594bffa9a9eea48d986b780346d72a6bc0081da1fc"
   license "Apache-2.0"
   head "https://github.com/gethash/bamboozle.git", branch: "main"
 
