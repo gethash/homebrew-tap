@@ -1,0 +1,50 @@
+class Bamboozle < Formula
+  desc "Fullscreen PDF presenter with auto-advance, spiritual successor to Impressive"
+  homepage "https://github.com/gethash/bamboozle"
+  url "https://github.com/gethash/bamboozle/archive/refs/tags/v0.2.0.tar.gz"
+  sha256 "PLACEHOLDER_compute_after_tagging"
+  license "Apache-2.0"
+  head "https://github.com/gethash/bamboozle.git", branch: "main"
+
+  bottle :unneeded
+
+  depends_on "go" => :build
+
+  # macOS: Cocoa, Metal, and OpenGL come from Xcode CLT — no extra deps.
+  # Linux: Ebiten's CGO layer needs Mesa + X11 extension headers.
+  on_linux do
+    depends_on "mesa" => :build
+    depends_on "libxcursor" => :build
+    depends_on "libxi" => :build
+    depends_on "libxinerama" => :build
+    depends_on "libxrandr" => :build
+    depends_on "libxxf86vm" => :build
+    depends_on "libxkbcommon" => :build
+    depends_on "pkg-config" => :build
+  end
+
+  def install
+    build_date = Time.now.utc.strftime("%Y-%m-%dT%H:%M:%SZ")
+    ldflags = [
+      "-s", "-w",
+      "-X", "main.version=v#{version}",
+      "-X", "main.commit=homebrew",
+      "-X", "main.date=#{build_date}",
+    ]
+    system "go", "build",
+           "-trimpath",
+           "-ldflags", ldflags.join(" "),
+           "-o", bin/"bamboozle",
+           "./cmd/bamboozle"
+  end
+
+  test do
+    assert_match "v#{version}", shell_output("#{bin}/bamboozle --version")
+    assert_match "no PDF given", shell_output("#{bin}/bamboozle 2>&1", 2)
+  end
+
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+end
