@@ -12,7 +12,7 @@ brew tap gethash/tap
 
 | Formula | Description | Source |
 |---------|-------------|--------|
-| [bamboozle](Formula/bamboozle.rb) | Fullscreen PDF presenter with auto-advance, spiritual successor to Impressive | [gethash/bamboozle](https://github.com/gethash/bamboozle) |
+| [boozle](Formula/boozle.rb) | Fullscreen PDF presenter with auto-advance, spiritual successor to Impressive | [gethash/boozle](https://github.com/gethash/boozle) |
 
 ## Usage
 
@@ -23,7 +23,7 @@ brew install gethash/tap/<formula>
 For example:
 
 ```sh
-brew install gethash/tap/bamboozle
+brew install gethash/tap/boozle
 ```
 
 ## Platform notes

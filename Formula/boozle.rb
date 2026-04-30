@@ -1,10 +1,10 @@
-class Bamboozle < Formula
+class Boozle < Formula
   desc "Fullscreen PDF presenter with auto-advance, spiritual successor to Impressive"
-  homepage "https://github.com/gethash/bamboozle"
-  url "https://github.com/gethash/bamboozle/archive/refs/tags/v1.0.0.tar.gz"
+  homepage "https://github.com/gethash/boozle"
+  url "https://github.com/gethash/boozle/archive/refs/tags/v1.0.0.tar.gz"
   sha256 "db766c02c19468329269c6f334c4521669d3c7e700b0f55304c685ee0084804e"
   license "Apache-2.0"
-  head "https://github.com/gethash/bamboozle.git", branch: "main"
+  head "https://github.com/gethash/boozle.git", branch: "main"
 
   depends_on "go" => :build
 
@@ -32,13 +32,13 @@ class Bamboozle < Formula
     system "go", "build",
            "-trimpath",
            "-ldflags", ldflags.join(" "),
-           "-o", bin/"bamboozle",
-           "./cmd/bamboozle"
+           "-o", bin/"boozle",
+           "./cmd/boozle"
   end
 
   test do
-    assert_match "v#{version}", shell_output("#{bin}/bamboozle --version")
-    assert_match "no PDF given", shell_output("#{bin}/bamboozle 2>&1", 2)
+    assert_match "v#{version}", shell_output("#{bin}/boozle --version")
+    assert_match "no PDF given", shell_output("#{bin}/boozle 2>&1", 2)
   end
 
   livecheck do
