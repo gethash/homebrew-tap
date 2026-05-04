@@ -1,8 +1,8 @@
 class Boozle < Formula
   desc "Fullscreen PDF presenter with auto-advance, spiritual successor to Impressive"
   homepage "https://github.com/gethash/boozle"
-  url "https://github.com/gethash/boozle/archive/refs/tags/v1.1.0.tar.gz"
-  sha256 "7c43e690e76ee9c24e918028884bf630164e8e244960d69ab9ef96d313aafe92"
+  url "https://github.com/gethash/boozle/archive/refs/tags/v1.1.1.tar.gz"
+  sha256 "09bc1f641231f9d8040b4ab0cfb495c5e89664c07d806d482b6d451cdd998175"
   license "Apache-2.0"
   head "https://github.com/gethash/boozle.git", branch: "main"
 
